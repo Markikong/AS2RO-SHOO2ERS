@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+pygame.mixer.init()
 #--------------------Game Menu--------------------#
 class Menu:
     def __init__(self, screen, screen_width, screen_height):
@@ -11,6 +12,10 @@ class Menu:
         self.items_font = pygame.font.Font('font\\Pixeled.ttf', 15)
         self.menu_items = ["Start Game","High Scores", "Quit"]
         self.selected_item = 0
+
+        pygame.mixer.music.load('audio\Menu.mp3') 
+        pygame.mixer.music.set_volume(0.5)  
+        pygame.mixer.music.play(-1) 
 
     def display_title(self):
         title_surf = self.title_font.render("As2ro Shoo2ers", True, 'white')

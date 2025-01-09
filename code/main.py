@@ -160,7 +160,8 @@ class Game:
 
     def handle_menu_selection(self):
             if self.menu.menu_items[self.menu.selected_item] == "Start Game":
-                self.start_game()  
+                self.start_game() 
+                pygame.mixer.music.stop() 
                 return False 
             
             elif self.menu.menu_items[self.menu.selected_item] == "High Scores":
@@ -180,6 +181,7 @@ class Game:
                 self.game_running = False
                 self.game_over = False
                 self.menu_running = True
+                pygame.mixer.music.play()
                 return False
 
             elif self.game_over_menu.menu_items[self.game_over_menu.selected_item] == "Quit":
